@@ -4,6 +4,12 @@ plugins {
     id("org.jetbrains.kotlin.plugin.compose")
 }
 
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    localProperties.load(new FileInputStream(localPropertiesFile))
+}
+
 android {
     compileSdk = 36
 
@@ -15,6 +21,12 @@ android {
         versionName "1.12"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "ADMOB_APP_ID", "\"${localProperties['ADMOB_APP_ID']}\""
+        buildConfigField "String", "ADMOB_BANNER_ID", "\"${localProperties['ADMOB_BANNER_ID']}\""
+        buildConfigField "String", "ADMOB_FULL_ID", "\"${localProperties['ADMOB_FULL_ID']}\""
+        buildConfigField "String", "ADMOB_OPENAD_ID", "\"${localProperties['ADMOB_OPENAD_ID']}\""
+        resValue "string", "admob_app_id", "${localProperties['ADMOB_APP_ID']}"
+
     }
     buildTypes {
         release {
@@ -28,6 +40,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17

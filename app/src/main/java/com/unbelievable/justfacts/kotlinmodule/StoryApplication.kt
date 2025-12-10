@@ -13,6 +13,7 @@ import com.google.android.gms.ads.FullScreenContentCallback
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.appopen.AppOpenAd
+import com.unbelievable.justfacts.BuildConfig
 import com.unbelievable.justfacts.R
 import java.util.Date
 
@@ -129,7 +130,7 @@ class StoryApplication : Application(), Application.ActivityLifecycleCallbacks,
                 // [START load_ad]
                 AppOpenAd.load(
                     context,
-                    context.getString(R.string.admob_open_ad),
+                    BuildConfig.ADMOB_OPENAD_ID,
                     AdRequest.Builder().build(),
                     object : AppOpenAd.AppOpenAdLoadCallback() {
                         override fun onAdLoaded(ad: AppOpenAd) {

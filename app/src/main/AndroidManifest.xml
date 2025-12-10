@@ -32,10 +32,6 @@
         <activity
             android:name=".kotlinmodule.activities.ReadStoryActivity"
             android:screenOrientation="portrait"/>
-        <activity
-            android:name="com.unbelievable.justfacts.activities.ListActivity"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="portrait"/>
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"

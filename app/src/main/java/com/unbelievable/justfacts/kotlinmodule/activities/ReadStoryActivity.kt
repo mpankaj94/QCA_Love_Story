@@ -44,6 +44,7 @@ import androidx.compose.ui.viewinterop.AndroidView
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
+import com.unbelievable.justfacts.BuildConfig
 import com.unbelievable.justfacts.R
 import com.unbelievable.justfacts.kotlinmodule.model.ThemePreferences
 import kotlinx.coroutines.delay
@@ -145,7 +146,8 @@ fun ReadStoryScreenUI(title: String, desc: String) {
             onAutoScroll = { isAutoScroll = !isAutoScroll }
         )
         AdaptiveAdMobBanner(
-            adUnitId = stringResource(R.string.admob_banner)
+
+            adUnitId = BuildConfig.ADMOB_BANNER_ID
         )
     }
 }
